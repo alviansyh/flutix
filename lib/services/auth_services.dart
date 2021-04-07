@@ -19,7 +19,7 @@ class AuthServices {
 
       return FetchResult(user: user);
     } catch (e) {
-      return FetchResult(message: e.toString());
+      return FetchResult(message: e.toString().split(',')[1].trim());
     }
   }
 
@@ -32,8 +32,15 @@ class AuthServices {
 
       return FetchResult(user: user);
     } catch (e) {
-      return FetchResult(message: e.toString());
+      return FetchResult(message: e.toString().split(',')[1].trim());
     }
+  }
+
+  //Handle User has Sign Up or Sign In or Sign Out
+  static Stream<auth.User> get userStream => _auth.authStateChanges();
+
+  static Future<FetchResult> signOut() async {
+    await _auth.signOut();
   }
 }
 
