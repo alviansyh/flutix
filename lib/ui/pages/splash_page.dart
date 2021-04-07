@@ -4,15 +4,67 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Splash Page'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              context.read<PageBloc>().add(GoToLoginPage());
-            },
-            child: Text('Sign In Please...')),
+      backgroundColor: Colors.white,
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+                height: 136,
+                decoration: BoxDecoration(
+                    image:
+                        DecorationImage(image: AssetImage('assets/logo.png')))),
+            Container(
+              margin: EdgeInsets.only(top: 70, bottom: 16),
+              child: Text(
+                'New Experience',
+                style: blackTextFont.copyWith(fontSize: 20),
+              ),
+            ),
+            Text(
+              'Watch a new movie much\neasier than any before',
+              style: greyTextFont.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w300,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Container(
+              width: 250,
+              height: 46,
+              margin: EdgeInsets.only(top: 70, bottom: 20),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(primary: mainColor),
+                child: Text(
+                  'Get Started',
+                  style: whiteTextFont.copyWith(fontSize: 16),
+                ),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Already have an account?',
+                  style: greyTextFont.copyWith(fontWeight: FontWeight.w400),
+                ),
+                SizedBox(width: 5),
+                GestureDetector(
+                  onTap: () {
+                    context.read<PageBloc>().add(GoToLoginPage());
+                  },
+                  child: Text(
+                    'Sign In',
+                    style: TextStyle(color: mainColor),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
