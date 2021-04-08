@@ -32,7 +32,7 @@ class AuthServices {
 
       return FetchResult(user: user);
     } catch (e) {
-      return FetchResult(message: e.toString().split(',')[1].trim());
+      return FetchResult(message: e.toString().split(',')[0].trim());
     }
   }
 
