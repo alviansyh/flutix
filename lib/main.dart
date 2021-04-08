@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
-
+import 'package:flutix/bloc/blocs.dart';
 import 'package:flutix/services/services.dart';
 import 'package:flutix/ui/pages/pages.dart';
-import 'package:flutix/bloc/blocs.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,12 +21,16 @@ class MyApp extends StatelessWidget {
       initialData: null,
       child: MultiBlocProvider(
         providers: [
+          BlocProvider(create: (_) => ThemeBloc()),
           BlocProvider(create: (_) => PageBloc()),
           BlocProvider(create: (_) => UserBloc()),
         ],
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: Wrapper(),
+        child: BlocBuilder<ThemeBloc, ThemeState>(
+          builder: (_, themeState) => MaterialApp(
+            theme: themeState.themeData,
+            debugShowCheckedModeBanner: false,
+            home: Wrapper(),
+          ),
         ),
       ),
     );

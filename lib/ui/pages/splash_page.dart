@@ -15,16 +15,16 @@ class SplashPage extends StatelessWidget {
                 height: 136,
                 decoration: BoxDecoration(
                     image:
-                        DecorationImage(image: AssetImage('assets/logo.png')))),
+                    DecorationImage(image: AssetImage('assets/logo.png')))),
             Container(
               margin: EdgeInsets.only(top: 70, bottom: 16),
               child: Text(
-                'New Experience',
+                "New Experience",
                 style: blackTextFont.copyWith(fontSize: 20),
               ),
             ),
             Text(
-              'Watch a new movie much\neasier than any before',
+              "Watch a new movie much\neasier than any before",
               style: greyTextFont.copyWith(
                 fontSize: 16,
                 fontWeight: FontWeight.w300,
@@ -36,10 +36,13 @@ class SplashPage extends StatelessWidget {
               height: 46,
               margin: EdgeInsets.only(top: 70, bottom: 20),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<PageBloc>().add(
+                      GoToRegistrationPage(RegistrationData()));
+                },
                 style: ElevatedButton.styleFrom(primary: mainColor),
                 child: Text(
-                  'Get Started',
+                  "Get Started",
                   style: whiteTextFont.copyWith(fontSize: 16),
                 ),
               ),
@@ -48,7 +51,7 @@ class SplashPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Already have an account?',
+                  "Already have an account?",
                   style: greyTextFont.copyWith(fontWeight: FontWeight.w400),
                 ),
                 SizedBox(width: 5),
@@ -57,7 +60,7 @@ class SplashPage extends StatelessWidget {
                     context.read<PageBloc>().add(GoToLoginPage());
                   },
                   child: Text(
-                    'Sign In',
+                    "Sign In",
                     style: TextStyle(color: mainColor),
                   ),
                 ),
