@@ -26,3 +26,4 @@ part 'account_confirmation_page.dart';
 part 'preference_page.dart';
 part 'wrapper.dart';
 part 'movie_page.dart';
+
