@@ -122,7 +122,14 @@ class MoviePage extends StatelessWidget {
                           right: (index == movies.length - 1)
                               ? defaultMargin
                               : 16),
-                      child: MovieCard(movies[index])),
+                      child: MovieCard(
+                        movies[index],
+                        onTap: () {
+                          context
+                              .read<PageBloc>()
+                              .add(GoToMovieDetailPage(movies[index]));
+                        },
+                      )),
                 );
               } else {
                 return SpinKitCircle(
@@ -185,12 +192,20 @@ class MoviePage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: upcomingMovie.length,
                   itemBuilder: (_, index) => Container(
-                      margin: EdgeInsets.only(
-                          left: (index == 0) ? defaultMargin : 0,
-                          right: (index == upcomingMovie.length - 1)
-                              ? defaultMargin
-                              : 16),
-                      child: ComingMovieCard(upcomingMovie[index])),
+                    margin: EdgeInsets.only(
+                        left: (index == 0) ? defaultMargin : 0,
+                        right: (index == upcomingMovie.length - 1)
+                            ? defaultMargin
+                            : 16),
+                    child: ComingMovieCard(
+                      upcomingMovie[index],
+                      onTap: () {
+                        context
+                            .read<PageBloc>()
+                            .add(GoToComingMovieDetailPage(upcomingMovie[index]));
+                      },
+                    ),
+                  ),
                 );
               } else {
                 return SpinKitCircle(

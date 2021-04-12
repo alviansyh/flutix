@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutix/models/models.dart';
 
 part 'page_event.dart';
+
 part 'page_state.dart';
 
 class PageBloc extends Bloc<PageEvent, PageState> {
@@ -26,6 +27,10 @@ class PageBloc extends Bloc<PageEvent, PageState> {
       yield OnPreferencePage(event.registrationData);
     } else if (event is GoToAccountConfirmationPage) {
       yield OnAccountConfirmationPage(event.registrationData);
+    } else if (event is GoToMovieDetailPage) {
+      yield OnMovieDetailPage(event.movie);
+    } else if (event is GoToComingMovieDetailPage) {
+      yield OnComingMovieDetailPage(event.movie);
     }
   }
 }
