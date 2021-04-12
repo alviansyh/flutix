@@ -95,54 +95,12 @@ class _SignUpPageState extends State<SignUpPage> {
                           if (widget.registrationData.profileImage == null) {
                             widget.registrationData.profileImage =
                                 await getImage();
+                            print(widget.registrationData.profileImage);
                           } else {
                             widget.registrationData.profileImage = null;
                           }
 
-                          setState(() {
-                            if (!(nameController.text.trim() != "" &&
-                                emailController.text.trim() != "" &&
-                                passwordController.text.trim() != "" &&
-                                retypePasswordController.text.trim() != "")) {
-                              Flushbar(
-                                duration: Duration(milliseconds: 1500),
-                                flushbarPosition: FlushbarPosition.TOP,
-                                backgroundColor: Colors.pinkAccent,
-                                message: "Please fill all the fields",
-                              ).show(context);
-                            } else if (passwordController.text !=
-                                retypePasswordController.text) {
-                              Flushbar(
-                                duration: Duration(milliseconds: 1500),
-                                flushbarPosition: FlushbarPosition.TOP,
-                                backgroundColor: Colors.pinkAccent,
-                                message:
-                                    "Mismatch password and confirmed password",
-                              ).show(context);
-                            } else if (passwordController.text.length < 6) {
-                              Flushbar(
-                                duration: Duration(milliseconds: 1500),
-                                flushbarPosition: FlushbarPosition.TOP,
-                                backgroundColor: Colors.pinkAccent,
-                                message: "Password's length min 6 characters",
-                              ).show(context);
-                            } else if (!EmailValidator.validate(
-                                emailController.text)) {
-                              Flushbar(
-                                duration: Duration(milliseconds: 1500),
-                                flushbarPosition: FlushbarPosition.TOP,
-                                backgroundColor: Colors.pinkAccent,
-                                message: "Wrong formatted email address",
-                              ).show(context);
-                            } else {
-                              widget.registrationData.name =
-                                  nameController.text;
-                              widget.registrationData.email =
-                                  emailController.text;
-                              widget.registrationData.password =
-                                  passwordController.text;
-                            }
-                          });
+                          setState(() {});
                         },
                         child: Container(
                           height: 28,
@@ -214,7 +172,54 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: Icon(Icons.arrow_forward),
                   backgroundColor: mainColor,
                   elevation: 0,
-                  onPressed: () {})
+                  onPressed: () {
+                    setState(() {
+                      if (!(nameController.text.trim() != "" &&
+                          emailController.text.trim() != "" &&
+                          passwordController.text.trim() != "" &&
+                          retypePasswordController.text.trim() != "")) {
+                        Flushbar(
+                          duration: Duration(milliseconds: 1500),
+                          flushbarPosition: FlushbarPosition.TOP,
+                          backgroundColor: Colors.pinkAccent,
+                          message: "Please fill all the fields",
+                        ).show(context);
+                      } else if (passwordController.text !=
+                          retypePasswordController.text) {
+                        Flushbar(
+                          duration: Duration(milliseconds: 1500),
+                          flushbarPosition: FlushbarPosition.TOP,
+                          backgroundColor: Colors.pinkAccent,
+                          message:
+                          "Mismatch password and confirmed password",
+                        ).show(context);
+                      } else if (passwordController.text.length < 6) {
+                        Flushbar(
+                          duration: Duration(milliseconds: 1500),
+                          flushbarPosition: FlushbarPosition.TOP,
+                          backgroundColor: Colors.pinkAccent,
+                          message: "Password's length min 6 characters",
+                        ).show(context);
+                      } else if (!EmailValidator.validate(
+                          emailController.text)) {
+                        Flushbar(
+                          duration: Duration(milliseconds: 1500),
+                          flushbarPosition: FlushbarPosition.TOP,
+                          backgroundColor: Colors.pinkAccent,
+                          message: "Wrong formatted email address",
+                        ).show(context);
+                      } else {
+                        widget.registrationData.name =
+                            nameController.text;
+                        widget.registrationData.email =
+                            emailController.text;
+                        widget.registrationData.password =
+                            passwordController.text;
+
+                        context.read<PageBloc>().add(GoToPreferencePage(widget.registrationData));
+                      }
+                    });
+                  })
             ],
           ),
         ),
