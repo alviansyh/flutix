@@ -4,12 +4,12 @@ class UserServices {
   static CollectionReference _userCollection = FirebaseFirestore.instance.collection('users');
 
   static Future<void> updateUser (User user) async {
-    String genres = "";
-
-    for (var genre in user.selectedGenres) {
-      //ex data : ["Action","Horror","Drama"] => "Action,Horror,Drama"
-      genres += genre + ((genre != user.selectedGenres.last) ? ',' : '');
-    }
+    // String genres = "";
+    //
+    // for (var genre in user.selectedGenres) {
+    //   //ex data : ["Action","Horror","Drama"] => "Action,Horror,Drama"
+    //   genres += genre + ((genre != user.selectedGenres.last) ? ',' : '');
+    // }
 
     _userCollection.doc(user.id).set({
       'email': user.email,
