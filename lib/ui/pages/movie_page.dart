@@ -235,7 +235,7 @@ class MoviePage extends StatelessWidget {
               .toList(),
         ),
         SizedBox(
-          height: 100,
+          height: 200,
         )
       ],
     );

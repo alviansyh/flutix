@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutix/shared/shared.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:flutix/extensions/extensions.dart';
 
 part 'selectable_box.dart';
 part 'movie_card.dart';
@@ -14,3 +15,4 @@ part 'browse_button.dart';
 part 'coming_movie_card.dart';
 part 'credit_card.dart';
 part 'promo_card.dart';
+part 'date_card.dart';
