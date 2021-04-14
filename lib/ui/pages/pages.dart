@@ -1,12 +1,13 @@
 import 'dart:ui';
 
-import 'package:another_flushbar/flushbar.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:flutix/bloc/blocs.dart';
 import 'package:flutix/models/models.dart';
 import 'package:flutix/services/services.dart';
+import 'package:flutix/extensions/extensions.dart';
 import 'package:flutix/shared/shared.dart';
 import 'package:flutix/ui/widgets/widgets.dart';
+import 'package:another_flushbar/flushbar.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
@@ -31,3 +32,4 @@ part 'movie_detail_page.dart';
 part 'coming_movie_detail_page.dart';
 part 'select_schedule_page.dart';
 part 'select_seat_page.dart';
+part 'checkout_page.dart';
