@@ -101,7 +101,14 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
                         ),
                         onPressed: () {
                           if (isValid) {
-
+                            context.read<PageBloc>().add(GoToSelectSeatPage(Ticket(
+                                widget.movieDetail,
+                                selectedTheater,
+                                DateTime(selectedDate.year, selectedDate.month, selectedDate.day, selectedTime),
+                                randomAlphaNumeric(12).toUpperCase(),
+                                null,
+                                (userState as UserLoaded).user.name,
+                                null)));
                           }
                         }),
                   ),
