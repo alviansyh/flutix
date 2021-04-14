@@ -186,7 +186,7 @@ class MoviePage extends StatelessWidget {
             builder: (_, upcomingMovieState) {
               if (upcomingMovieState is UpcomingMovieLoaded) {
                 List<Movie> upcomingMovie =
-                    upcomingMovieState.movies.sublist(0, 8);
+                    upcomingMovieState.movies.sublist(0);
 
                 return ListView.builder(
                   scrollDirection: Axis.horizontal,

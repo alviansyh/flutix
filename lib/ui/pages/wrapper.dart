@@ -35,6 +35,8 @@ class Wrapper extends StatelessWidget {
                                 ? MovieDetailPage(pageState.movie)
                                 : (pageState is OnComingMovieDetailPage)
                                     ? UpcomingMovieDetailPage(pageState.movie)
-                                    : MainPage());
+                                    : (pageState is OnSelectSchedulePage)
+                                        ? SelectSchedulePage(pageState.movieDetail)
+                                        : MainPage());
   }
 }

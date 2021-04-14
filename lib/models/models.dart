@@ -10,3 +10,4 @@ part 'movie.dart';
 part 'movie_detail.dart';
 part 'credit.dart';
 part 'promo.dart';
+part 'theater.dart';
