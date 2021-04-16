@@ -12,3 +12,4 @@ part 'credit.dart';
 part 'promo.dart';
 part 'theater.dart';
 part 'ticket.dart';
+part 'flutix_transaction.dart';
