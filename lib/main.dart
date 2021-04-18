@@ -38,31 +38,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// import 'dart:convert';import 'dart:developer';
-// import 'package:http/http.dart' as http;
-//
-// void main(List<String> arguments) async {
-//   // This example uses the Google Books API to search for books about http.
-//   // https://developers.google.com/books/docs/overview
-//   var url = Uri.https("api.themoviedb.org", "/3/discover/movie", {
-//     "api_key": "74b6b690767cf703d58065a3bd929b6f",
-//     "language": "en-US",
-//     "sort_by": "popularity.desc",
-//     "include_adult": "false",
-//     "include_video": "false",
-//     "page": "1"
-//   });
-//
-//   // Await the http get response, then decode the json-formatted response.
-//   var response = await http.get(url);
-//   // var response = await client.get(url);
-//
-//   if (response.statusCode != 200) {
-//     print('Request failed');
-//   }
-//
-//   var data = json.decode(response.body);
-//   var result = data['results'][2]['title'];
-//   log(result);
-// }

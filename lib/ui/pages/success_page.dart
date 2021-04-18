@@ -46,7 +46,7 @@ class SuccessPage extends StatelessWidget {
                           if (ticket == null) {
                             // context.read<PageBloc>().add(GoToWalletPage(GoToMainPage()));
                           } else {
-                            // context.read<PageBloc>().add(GoToMainPage(bottomNavBarIndex: 1));
+                            context.read<PageBloc>().add(GoToMainPage(bottomNavBarIndex: 1));
                           }
                         },
                         style: ElevatedButton.styleFrom(

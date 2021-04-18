@@ -1,6 +1,11 @@
 part of 'pages.dart';
 
 class MainPage extends StatefulWidget {
+  final int bottomNavBarIndex;
+  final bool isExpired;
+
+  MainPage({this.bottomNavBarIndex = 0, this.isExpired = false});
+
   @override
   _MainPageState createState() => _MainPageState();
 }
@@ -39,7 +44,10 @@ class _MainPageState extends State<MainPage> {
             },
             children: [
               MoviePage(),
-              Center(child: Text("My Tickets"))
+              TicketPage(),
+              // TicketPage(
+              //   isExpiredTicket: widget.isExpired,
+              // )
             ],
           ),
           customBottomNavBar(),
@@ -61,7 +69,8 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                   onPressed: () {
-                    AuthServices.signOut();
+                    // AuthServices.signOut();
+                    print(DateTime.now().millisecondsSinceEpoch);
                   }),
             ),
           )
@@ -101,9 +110,7 @@ class _MainPageState extends State<MainPage> {
                   icon: Container(
                     margin: EdgeInsets.only(bottom: 6),
                     height: 20,
-                    child: Image.asset((bottomNavBarIndex == 0)
-                        ? 'assets/ic_movie.png'
-                        : 'assets/ic_movie_grey.png'),
+                    child: Image.asset((bottomNavBarIndex == 0) ? 'assets/ic_movie.png' : 'assets/ic_movie_grey.png'),
                   ),
                 ),
                 BottomNavigationBarItem(
@@ -111,14 +118,11 @@ class _MainPageState extends State<MainPage> {
                   icon: Container(
                     margin: EdgeInsets.only(bottom: 6),
                     height: 20,
-                    child: Image.asset((bottomNavBarIndex == 1)
-                        ? 'assets/ic_tickets.png'
-                        : 'assets/ic_tickets_grey.png'),
+                    child: Image.asset((bottomNavBarIndex == 1) ? 'assets/ic_tickets.png' : 'assets/ic_tickets_grey.png'),
                   ),
                 )
               ],
-              selectedLabelStyle: GoogleFonts.raleway(
-                  fontSize: 13, fontWeight: FontWeight.w600),
+              selectedLabelStyle: GoogleFonts.raleway(fontSize: 13, fontWeight: FontWeight.w600),
             ),
           ),
         ),
