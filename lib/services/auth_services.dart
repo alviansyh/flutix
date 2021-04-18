@@ -42,6 +42,10 @@ class AuthServices {
   static Future<FetchResult> signOut() async {
     await _auth.signOut();
   }
+
+  static Future<void> resetPassword(String email) async {
+    await _auth.sendPasswordResetEmail(email: email);
+  }
 }
 
 class FetchResult {

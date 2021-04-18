@@ -51,8 +51,8 @@ class Wrapper extends StatelessWidget {
                                                                 ? TopUpPage(pageState.pageEvent)
                                                                 : (pageState is OnWalletPage)
                                                                     ? WalletPage(pageState.pageEvent)
-                                                            //         : (pageState is OnEditProfilePage)
-                                                            //             ? EditProfilePage(pageState.user)
+                                                                    : (pageState is OnEditProfilePage)
+                                                                        ? EditProfilePage(pageState.user)
                                                                         : (pageState is OnMainPage)
                                                                             ? MainPage(
                                                                                 bottomNavBarIndex: pageState.bottomNavBarIndex,
