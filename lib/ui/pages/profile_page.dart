@@ -48,10 +48,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                     // width: 120,
                                     // height: 120,
                                     decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                            image: (user.profilePicture != "") ? NetworkImage(user.profilePicture) : AssetImage("assets/user_pic.png"),
-                                            fit: BoxFit.cover)),
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                          image: (user.profilePicture != "") ? NetworkImage(user.profilePicture) : AssetImage("assets/user_pic.png"), fit: BoxFit.cover),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -219,18 +219,19 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             SafeArea(
-                child: Container(
-              margin: EdgeInsets.only(top: 20, left: defaultMargin),
-              child: GestureDetector(
-                onTap: () {
-                  context.read<PageBloc>().add(GoToMainPage());
-                },
-                child: Icon(
-                  Icons.arrow_back,
-                  color: Colors.black,
+              child: Container(
+                margin: EdgeInsets.only(top: 20, left: defaultMargin),
+                child: GestureDetector(
+                  onTap: () {
+                    context.read<PageBloc>().add(GoToMainPage());
+                  },
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Colors.black,
+                  ),
                 ),
               ),
-            ))
+            )
           ],
         ),
       ),

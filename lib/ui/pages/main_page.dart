@@ -69,8 +69,7 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                   onPressed: () {
-                    // AuthServices.signOut();
-                    print(DateTime.now().millisecondsSinceEpoch);
+                    context.read<PageBloc>().add(GoToTopUpPage(GoToMainPage()));
                   }),
             ),
           )
